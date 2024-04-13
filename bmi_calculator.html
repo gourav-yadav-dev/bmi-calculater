@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th ,td{
+            border:2px solid black;
+        }
+        </style>
+</head>
+<body>
+    <h1>BMI calculator</h1>
+    <p>Weight in kg:<input id="weight" type="number"></p>
+    <p>height in cm:<input id="height" type="number"></p>
+    <button id="calculator" onclick="calcu()">Calculate</button>
+    <p>BMI:<span id="bmi-calcu"></span></p>
+    <table>
+<tr>
+    <th>BMI</th>
+    <th>weight range</th>
+</tr>
+<tr>
+    <td>Less than 18.5</td>
+    <td>Underweight</td>
+</tr>
+<tr>
+    <td>Less than 18.5 and 24.9</td>
+    <td>Normal</td>
+</tr>
+<tr>
+    <td>Between 25 than 29.9</td>
+    <td>Overweight</td>
+</tr>
+<tr>
+    <td>Over 30</td>
+    <td>Obese</td>
+</tr>
+
+
+    </table>
+</body>
+<script>
+function calcu(){
+const weight=document.querySelector('#weight').value;
+const height=document.querySelector('#height').value;
+if(weight==''||height==""){
+document.write("Enter the vaild weight and height");
+}
+else{
+const height_msquare=(height/100)
+// console.log(`height ${height_msquare}`);
+const realheight=(height_msquare*height_msquare).toPrecision(2)
+// console.log(`height ${realheight}`);
+const bmi=(weight/realheight).toPrecision(4);
+console.log(bmi);
+document.querySelector('#bmi-calcu').textContent=bmi
+}
+
+}
+
+
+    </script>
+</html>
